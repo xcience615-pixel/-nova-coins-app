@@ -1,97 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nova Coins</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova Points</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
       text-align: center;
+      background: #f5f7fb;
+      padding: 30px 15px;
     }
 
-    .container {
-      max-width: 500px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-
-    h1 {
-      margin-bottom: 8px;
-    }
-
-    .balance {
+    .box {
       background: white;
-      border-radius: 16px;
       padding: 25px;
-      margin: 25px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    .coins {
-      font-size: 32px;
-      font-weight: bold;
-    }
-
-    .package {
-      background: white;
-      border-radius: 14px;
-      padding: 18px;
-      margin: 12px 0;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+      margin: 15px auto;
+      border-radius: 15px;
+      max-width: 400px;
     }
 
     button {
-      border: none;
-      border-radius: 10px;
       padding: 12px 25px;
+      border: 0;
+      border-radius: 10px;
       font-size: 16px;
-      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <h1>🪙 Nova Coins</h1>
-    <p>Welcome to Nova Coins</p>
+  <h1>⭐ Nova Points</h1>
 
-    <div class="balance">
-      <div>Your Balance</div>
-      <div class="coins">0 Coins</div>
-    </div>
-
-    <h2>Choose a Package</h2>
-
-    <div class="package">
-      <h3>100 Coins</h3>
-      <p>Demo package</p>
-      <button onclick="alert('Purchase option selected')">
-        Select
-      </button>
-    </div>
-
-    <div class="package">
-      <h3>500 Coins</h3>
-      <p>Demo package</p>
-      <button onclick="alert('Purchase option selected')">
-        Select
-      </button>
-    </div>
-
-    <div class="package">
-      <h3>1,000 Coins</h3>
-      <p>Demo package</p>
-      <button onclick="alert('Purchase option selected')">
-        Select
-      </button>
-    </div>
-
+  <div class="box">
+    <p>Your Balance</p>
+    <h2 id="balance">0 Points</h2>
   </div>
+
+  <h2>Choose a Package</h2>
+
+  <div class="box">
+    <h3>100 Points</h3>
+    <button onclick="addPoints(100)">Select</button>
+  </div>
+
+  <div class="box">
+    <h3>500 Points</h3>
+    <button onclick="addPoints(500)">Select</button>
+  </div>
+
+  <div class="box">
+    <h3>1,000 Points</h3>
+    <button onclick="addPoints(1000)">Select</button>
+  </div>
+
+  <script>
+    let balance = 0;
+
+    function addPoints(points) {
+      balance += points;
+      document.getElementById("balance").textContent =
+        balance.toLocaleString() + " Points";
+
+      alert(points.toLocaleString() + " demo points added!");
+    }
+  </script>
+
 </body>
 </html>
